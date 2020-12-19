@@ -1,0 +1,888 @@
+Index: web/manifest.json
+===================================================================
+diff --git a/web/manifest.json b/web/manifest.json
+deleted file mode 100644
+--- a/web/manifest.json	(revision 06b3bff4fc26610fa871089f3cb877e2ddb70c6e)
++++ /dev/null	(revision 06b3bff4fc26610fa871089f3cb877e2ddb70c6e)
+@@ -1,23 +0,0 @@
+-{
+-    "name": "just_one_upgraded",
+-    "short_name": "just_one_upgraded",
+-    "start_url": ".",
+-    "display": "standalone",
+-    "background_color": "#0175C2",
+-    "theme_color": "#0175C2",
+-    "description": "A new Flutter project.",
+-    "orientation": "portrait-primary",
+-    "prefer_related_applications": false,
+-    "icons": [
+-        {
+-            "src": "icons/Icon-192.png",
+-            "sizes": "192x192",
+-            "type": "image/png"
+-        },
+-        {
+-            "src": "icons/Icon-512.png",
+-            "sizes": "512x512",
+-            "type": "image/png"
+-        }
+-    ]
+-}
+Index: web/index.html
+===================================================================
+diff --git a/web/index.html b/web/index.html
+deleted file mode 100644
+--- a/web/index.html	(revision 06b3bff4fc26610fa871089f3cb877e2ddb70c6e)
++++ /dev/null	(revision 06b3bff4fc26610fa871089f3cb877e2ddb70c6e)
+@@ -1,45 +0,0 @@
+-<!DOCTYPE html>
+-<html>
+-<head>
+-  <!--
+-    If you are serving your web app in a path other than the root, change the
+-    href value below to reflect the base path you are serving from.
+-
+-    The path provided below has to start and end with a slash "/" in order for
+-    it to work correctly.
+-
+-    Fore more details:
+-    * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
+-  -->
+-  <base href="/">
+-
+-  <meta charset="UTF-8">
+-  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+-  <meta name="description" content="A new Flutter project.">
+-
+-  <!-- iOS meta tags & icons -->
+-  <meta name="apple-mobile-web-app-capable" content="yes">
+-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+-  <meta name="apple-mobile-web-app-title" content="just_one_upgraded">
+-  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+-
+-  <!-- Favicon -->
+-  <link rel="icon" type="image/png" href="favicon.png"/>
+-
+-  <title>just_one_upgraded</title>
+-  <link rel="manifest" href="manifest.json">
+-</head>
+-<body>
+-  <!-- This script installs service_worker.js to provide PWA functionality to
+-       application. For more information, see:
+-       https://developers.google.com/web/fundamentals/primers/service-workers -->
+-  <script>
+-    if ('serviceWorker' in navigator) {
+-      window.addEventListener('flutter-first-frame', function () {
+-        navigator.serviceWorker.register('flutter_service_worker.js');
+-      });
+-    }
+-  </script>
+-  <script src="main.dart.js" type="application/javascript"></script>
+-</body>
+-</html>
+Index: android/app/src/main/res/drawable-v21/launch_background.xml
+===================================================================
+diff --git a/android/app/src/main/res/drawable-v21/launch_background.xml b/android/app/src/main/res/drawable-v21/launch_background.xml
+deleted file mode 100644
+--- a/android/app/src/main/res/drawable-v21/launch_background.xml	(revision 06b3bff4fc26610fa871089f3cb877e2ddb70c6e)
++++ /dev/null	(revision 06b3bff4fc26610fa871089f3cb877e2ddb70c6e)
+@@ -1,12 +0,0 @@
+-<?xml version="1.0" encoding="utf-8"?>
+-<!-- Modify this file to customize your launch splash screen -->
+-<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+-    <item android:drawable="?android:colorBackground" />
+-
+-    <!-- You can insert your own image assets here -->
+-    <!-- <item>
+-        <bitmap
+-            android:gravity="center"
+-            android:src="@mipmap/launch_image" />
+-    </item> -->
+-</layer-list>
+Index: integration_test/app_test.dart
+===================================================================
+diff --git a/integration_test/app_test.dart b/integration_test/app_test.dart
+deleted file mode 100644
+--- a/integration_test/app_test.dart	(revision 06b3bff4fc26610fa871089f3cb877e2ddb70c6e)
++++ /dev/null	(revision 06b3bff4fc26610fa871089f3cb877e2ddb70c6e)
+@@ -1,36 +0,0 @@
+-// This is a basic Flutter integration test.
+-//
+-// To perform an interaction with a widget in your test, use the WidgetTester
+-// utility that Flutter provides. For example, you can send tap and scroll
+-// gestures. You can also use WidgetTester to find child widgets in the widget
+-// tree, read text, and verify that the values of widget properties are correct.
+-
+-import 'package:flutter/material.dart';
+-import 'package:flutter_test/flutter_test.dart';
+-import 'package:integration_test/integration_test.dart';
+-
+-import 'package:just_one_upgraded/main.dart' as app;
+-
+-void main() => run(_testMain);
+-
+-void _testMain() {
+-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
+-    // Build our app and trigger a frame.
+-    app.main();
+-
+-    // Trigger a frame.
+-    await tester.pumpAndSettle();
+-
+-    // Verify that our counter starts at 0.
+-    expect(find.text('0'), findsOneWidget);
+-    expect(find.text('1'), findsNothing);
+-
+-    // Tap the '+' icon and trigger a frame.
+-    await tester.tap(find.byIcon(Icons.add));
+-    await tester.pump();
+-
+-    // Verify that our counter has incremented.
+-    expect(find.text('0'), findsNothing);
+-    expect(find.text('1'), findsOneWidget);
+-  });
+-}
+Index: android/app/src/main/res/values-night/styles.xml
+===================================================================
+diff --git a/android/app/src/main/res/values-night/styles.xml b/android/app/src/main/res/values-night/styles.xml
+deleted file mode 100644
+--- a/android/app/src/main/res/values-night/styles.xml	(revision 06b3bff4fc26610fa871089f3cb877e2ddb70c6e)
++++ /dev/null	(revision 06b3bff4fc26610fa871089f3cb877e2ddb70c6e)
+@@ -1,18 +0,0 @@
+-<?xml version="1.0" encoding="utf-8"?>
+-<resources>
+-    <!-- Theme applied to the Android Window while the process is starting when the OS's Dark Mode setting is on -->
+-    <style name="LaunchTheme" parent="@android:style/Theme.Black.NoTitleBar">
+-        <!-- Show a splash screen on the activity. Automatically removed when
+-             Flutter draws its first frame -->
+-        <item name="android:windowBackground">@drawable/launch_background</item>
+-    </style>
+-    <!-- Theme applied to the Android Window as soon as the process has started.
+-         This theme determines the color of the Android Window while your
+-         Flutter UI initializes, as well as behind your Flutter UI while its
+-         running.
+-         
+-         This Theme is only used starting with V2 of Flutter's Android embedding. -->
+-    <style name="NormalTheme" parent="@android:style/Theme.Black.NoTitleBar">
+-        <item name="android:windowBackground">?android:colorBackground</item>
+-    </style>
+-</resources>
+Index: integration_test/driver.dart
+===================================================================
+diff --git a/integration_test/driver.dart b/integration_test/driver.dart
+deleted file mode 100644
+--- a/integration_test/driver.dart	(revision 06b3bff4fc26610fa871089f3cb877e2ddb70c6e)
++++ /dev/null	(revision 06b3bff4fc26610fa871089f3cb877e2ddb70c6e)
+@@ -1,8 +0,0 @@
+-// This file is provided as a convenience for running integration tests via the
+-// flutter drive command.
+-//
+-// flutter drive --driver integration_test/driver.dart --target integration_test/app_test.dart
+-
+-import 'package:integration_test/integration_test_driver.dart';
+-
+-Future<void> main() => integrationDriver();
+Index: android/gradle/wrapper/gradle-wrapper.properties
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>#Fri Jun 23 08:50:38 CEST 2017\r\ndistributionBase=GRADLE_USER_HOME\r\ndistributionPath=wrapper/dists\r\nzipStoreBase=GRADLE_USER_HOME\r\nzipStorePath=wrapper/dists\r\ndistributionUrl=https\\://services.gradle.org/distributions/gradle-6.7-all.zip\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1252
+===================================================================
+diff --git a/android/gradle/wrapper/gradle-wrapper.properties b/android/gradle/wrapper/gradle-wrapper.properties
+--- a/android/gradle/wrapper/gradle-wrapper.properties	(revision 06b3bff4fc26610fa871089f3cb877e2ddb70c6e)
++++ b/android/gradle/wrapper/gradle-wrapper.properties	(date 1608371279294)
+@@ -3,4 +3,4 @@
+ distributionPath=wrapper/dists
+ zipStoreBase=GRADLE_USER_HOME
+ zipStorePath=wrapper/dists
+-distributionUrl=https\://services.gradle.org/distributions/gradle-6.7-all.zip
++distributionUrl=https\://services.gradle.org/distributions/gradle-5.6.2-all.zip
+Index: android/app/src/main/res/values/styles.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<resources>\r\n    <!-- Theme applied to the Android Window while the process is starting when the OS's Dark Mode setting is off -->\r\n    <style name=\"LaunchTheme\" parent=\"@android:style/Theme.Light.NoTitleBar\">\r\n        <!-- Show a splash screen on the activity. Automatically removed when\r\n             Flutter draws its first frame -->\r\n        <item name=\"android:windowBackground\">@drawable/launch_background</item>\r\n    </style>\r\n    <!-- Theme applied to the Android Window as soon as the process has started.\r\n         This theme determines the color of the Android Window while your\r\n         Flutter UI initializes, as well as behind your Flutter UI while its\r\n         running.\r\n         \r\n         This Theme is only used starting with V2 of Flutter's Android embedding. -->\r\n    <style name=\"NormalTheme\" parent=\"@android:style/Theme.Light.NoTitleBar\">\r\n        <item name=\"android:windowBackground\">?android:colorBackground</item>\r\n    </style>\r\n</resources>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/android/app/src/main/res/values/styles.xml b/android/app/src/main/res/values/styles.xml
+--- a/android/app/src/main/res/values/styles.xml	(revision 06b3bff4fc26610fa871089f3cb877e2ddb70c6e)
++++ b/android/app/src/main/res/values/styles.xml	(date 1608371279293)
+@@ -1,7 +1,7 @@
+ <?xml version="1.0" encoding="utf-8"?>
+ <resources>
+-    <!-- Theme applied to the Android Window while the process is starting when the OS's Dark Mode setting is off -->
+-    <style name="LaunchTheme" parent="@android:style/Theme.Light.NoTitleBar">
++    <!-- Theme applied to the Android Window while the process is starting -->
++    <style name="LaunchTheme" parent="@android:style/Theme.Black.NoTitleBar">
+         <!-- Show a splash screen on the activity. Automatically removed when
+              Flutter draws its first frame -->
+         <item name="android:windowBackground">@drawable/launch_background</item>
+@@ -12,7 +12,7 @@
+          running.
+          
+          This Theme is only used starting with V2 of Flutter's Android embedding. -->
+-    <style name="NormalTheme" parent="@android:style/Theme.Light.NoTitleBar">
+-        <item name="android:windowBackground">?android:colorBackground</item>
++    <style name="NormalTheme" parent="@android:style/Theme.Black.NoTitleBar">
++        <item name="android:windowBackground">@android:color/white</item>
+     </style>
+ </resources>
+Index: ios/Runner.xcodeproj/project.pbxproj
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>// !$*UTF8*$!\r\n{\r\n\tarchiveVersion = 1;\r\n\tclasses = {\r\n\t};\r\n\tobjectVersion = 46;\r\n\tobjects = {\r\n\r\n/* Begin PBXBuildFile section */\r\n\t\t1498D2341E8E89220040F4C2 /* GeneratedPluginRegistrant.m in Sources */ = {isa = PBXBuildFile; fileRef = 1498D2331E8E89220040F4C2 /* GeneratedPluginRegistrant.m */; };\r\n\t\t3B3967161E833CAA004F5970 /* AppFrameworkInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3B3967151E833CAA004F5970 /* AppFrameworkInfo.plist */; };\r\n\t\t74858FAF1ED2DC5600515810 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74858FAE1ED2DC5600515810 /* AppDelegate.swift */; };\r\n\t\t97C146FC1CF9000F007C117D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FA1CF9000F007C117D /* Main.storyboard */; };\r\n\t\t97C146FE1CF9000F007C117D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FD1CF9000F007C117D /* Assets.xcassets */; };\r\n\t\t97C147011CF9000F007C117D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FF1CF9000F007C117D /* LaunchScreen.storyboard */; };\r\n/* End PBXBuildFile section */\r\n\r\n/* Begin PBXCopyFilesBuildPhase section */\r\n\t\t9705A1C41CF9048500538489 /* Embed Frameworks */ = {\r\n\t\t\tisa = PBXCopyFilesBuildPhase;\r\n\t\t\tbuildActionMask = 2147483647;\r\n\t\t\tdstPath = \"\";\r\n\t\t\tdstSubfolderSpec = 10;\r\n\t\t\tfiles = (\r\n\t\t\t);\r\n\t\t\tname = \"Embed Frameworks\";\r\n\t\t\trunOnlyForDeploymentPostprocessing = 0;\r\n\t\t};\r\n/* End PBXCopyFilesBuildPhase section */\r\n\r\n/* Begin PBXFileReference section */\r\n\t\t1498D2321E8E86230040F4C2 /* GeneratedPluginRegistrant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GeneratedPluginRegistrant.h; sourceTree = \"<group>\"; };\r\n\t\t1498D2331E8E89220040F4C2 /* GeneratedPluginRegistrant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeneratedPluginRegistrant.m; sourceTree = \"<group>\"; };\r\n\t\t3B3967151E833CAA004F5970 /* AppFrameworkInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = AppFrameworkInfo.plist; path = Flutter/AppFrameworkInfo.plist; sourceTree = \"<group>\"; };\r\n\t\t74858FAD1ED2DC5600515810 /* Runner-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = \"Runner-Bridging-Header.h\"; sourceTree = \"<group>\"; };\r\n\t\t74858FAE1ED2DC5600515810 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = \"<group>\"; };\r\n\t\t7AFA3C8E1D35360C0083082E /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Release.xcconfig; path = Flutter/Release.xcconfig; sourceTree = \"<group>\"; };\r\n\t\t9740EEB21CF90195004384FC /* Debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = Debug.xcconfig; path = Flutter/Debug.xcconfig; sourceTree = \"<group>\"; };\r\n\t\t9740EEB31CF90195004384FC /* Generated.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = Generated.xcconfig; path = Flutter/Generated.xcconfig; sourceTree = \"<group>\"; };\r\n\t\t97C146EE1CF9000F007C117D /* Runner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Runner.app; sourceTree = BUILT_PRODUCTS_DIR; };\r\n\t\t97C146FB1CF9000F007C117D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = \"<group>\"; };\r\n\t\t97C146FD1CF9000F007C117D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = \"<group>\"; };\r\n\t\t97C147001CF9000F007C117D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = \"<group>\"; };\r\n\t\t97C147021CF9000F007C117D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = \"<group>\"; };\r\n/* End PBXFileReference section */\r\n\r\n/* Begin PBXFrameworksBuildPhase section */\r\n\t\t97C146EB1CF9000F007C117D /* Frameworks */ = {\r\n\t\t\tisa = PBXFrameworksBuildPhase;\r\n\t\t\tbuildActionMask = 2147483647;\r\n\t\t\tfiles = (\r\n\t\t\t);\r\n\t\t\trunOnlyForDeploymentPostprocessing = 0;\r\n\t\t};\r\n/* End PBXFrameworksBuildPhase section */\r\n\r\n/* Begin PBXGroup section */\r\n\t\t9740EEB11CF90186004384FC /* Flutter */ = {\r\n\t\t\tisa = PBXGroup;\r\n\t\t\tchildren = (\r\n\t\t\t\t3B3967151E833CAA004F5970 /* AppFrameworkInfo.plist */,\r\n\t\t\t\t9740EEB21CF90195004384FC /* Debug.xcconfig */,\r\n\t\t\t\t7AFA3C8E1D35360C0083082E /* Release.xcconfig */,\r\n\t\t\t\t9740EEB31CF90195004384FC /* Generated.xcconfig */,\r\n\t\t\t);\r\n\t\t\tname = Flutter;\r\n\t\t\tsourceTree = \"<group>\";\r\n\t\t};\r\n\t\t97C146E51CF9000F007C117D = {\r\n\t\t\tisa = PBXGroup;\r\n\t\t\tchildren = (\r\n\t\t\t\t9740EEB11CF90186004384FC /* Flutter */,\r\n\t\t\t\t97C146F01CF9000F007C117D /* Runner */,\r\n\t\t\t\t97C146EF1CF9000F007C117D /* Products */,\r\n\t\t\t);\r\n\t\t\tsourceTree = \"<group>\";\r\n\t\t};\r\n\t\t97C146EF1CF9000F007C117D /* Products */ = {\r\n\t\t\tisa = PBXGroup;\r\n\t\t\tchildren = (\r\n\t\t\t\t97C146EE1CF9000F007C117D /* Runner.app */,\r\n\t\t\t);\r\n\t\t\tname = Products;\r\n\t\t\tsourceTree = \"<group>\";\r\n\t\t};\r\n\t\t97C146F01CF9000F007C117D /* Runner */ = {\r\n\t\t\tisa = PBXGroup;\r\n\t\t\tchildren = (\r\n\t\t\t\t97C146FA1CF9000F007C117D /* Main.storyboard */,\r\n\t\t\t\t97C146FD1CF9000F007C117D /* Assets.xcassets */,\r\n\t\t\t\t97C146FF1CF9000F007C117D /* LaunchScreen.storyboard */,\r\n\t\t\t\t97C147021CF9000F007C117D /* Info.plist */,\r\n\t\t\t\t1498D2321E8E86230040F4C2 /* GeneratedPluginRegistrant.h */,\r\n\t\t\t\t1498D2331E8E89220040F4C2 /* GeneratedPluginRegistrant.m */,\r\n\t\t\t\t74858FAE1ED2DC5600515810 /* AppDelegate.swift */,\r\n\t\t\t\t74858FAD1ED2DC5600515810 /* Runner-Bridging-Header.h */,\r\n\t\t\t);\r\n\t\t\tpath = Runner;\r\n\t\t\tsourceTree = \"<group>\";\r\n\t\t};\r\n/* End PBXGroup section */\r\n\r\n/* Begin PBXNativeTarget section */\r\n\t\t97C146ED1CF9000F007C117D /* Runner */ = {\r\n\t\t\tisa = PBXNativeTarget;\r\n\t\t\tbuildConfigurationList = 97C147051CF9000F007C117D /* Build configuration list for PBXNativeTarget \"Runner\" */;\r\n\t\t\tbuildPhases = (\r\n\t\t\t\t9740EEB61CF901F6004384FC /* Run Script */,\r\n\t\t\t\t97C146EA1CF9000F007C117D /* Sources */,\r\n\t\t\t\t97C146EB1CF9000F007C117D /* Frameworks */,\r\n\t\t\t\t97C146EC1CF9000F007C117D /* Resources */,\r\n\t\t\t\t9705A1C41CF9048500538489 /* Embed Frameworks */,\r\n\t\t\t\t3B06AD1E1E4923F5004D2608 /* Thin Binary */,\r\n\t\t\t);\r\n\t\t\tbuildRules = (\r\n\t\t\t);\r\n\t\t\tdependencies = (\r\n\t\t\t);\r\n\t\t\tname = Runner;\r\n\t\t\tproductName = Runner;\r\n\t\t\tproductReference = 97C146EE1CF9000F007C117D /* Runner.app */;\r\n\t\t\tproductType = \"com.apple.product-type.application\";\r\n\t\t};\r\n/* End PBXNativeTarget section */\r\n\r\n/* Begin PBXProject section */\r\n\t\t97C146E61CF9000F007C117D /* Project object */ = {\r\n\t\t\tisa = PBXProject;\r\n\t\t\tattributes = {\r\n\t\t\t\tLastUpgradeCheck = 1020;\r\n\t\t\t\tORGANIZATIONNAME = \"\";\r\n\t\t\t\tTargetAttributes = {\r\n\t\t\t\t\t97C146ED1CF9000F007C117D = {\r\n\t\t\t\t\t\tCreatedOnToolsVersion = 7.3.1;\r\n\t\t\t\t\t\tLastSwiftMigration = 1100;\r\n\t\t\t\t\t};\r\n\t\t\t\t};\r\n\t\t\t};\r\n\t\t\tbuildConfigurationList = 97C146E91CF9000F007C117D /* Build configuration list for PBXProject \"Runner\" */;\r\n\t\t\tcompatibilityVersion = \"Xcode 9.3\";\r\n\t\t\tdevelopmentRegion = en;\r\n\t\t\thasScannedForEncodings = 0;\r\n\t\t\tknownRegions = (\r\n\t\t\t\ten,\r\n\t\t\t\tBase,\r\n\t\t\t);\r\n\t\t\tmainGroup = 97C146E51CF9000F007C117D;\r\n\t\t\tproductRefGroup = 97C146EF1CF9000F007C117D /* Products */;\r\n\t\t\tprojectDirPath = \"\";\r\n\t\t\tprojectRoot = \"\";\r\n\t\t\ttargets = (\r\n\t\t\t\t97C146ED1CF9000F007C117D /* Runner */,\r\n\t\t\t);\r\n\t\t};\r\n/* End PBXProject section */\r\n\r\n/* Begin PBXResourcesBuildPhase section */\r\n\t\t97C146EC1CF9000F007C117D /* Resources */ = {\r\n\t\t\tisa = PBXResourcesBuildPhase;\r\n\t\t\tbuildActionMask = 2147483647;\r\n\t\t\tfiles = (\r\n\t\t\t\t97C147011CF9000F007C117D /* LaunchScreen.storyboard in Resources */,\r\n\t\t\t\t3B3967161E833CAA004F5970 /* AppFrameworkInfo.plist in Resources */,\r\n\t\t\t\t97C146FE1CF9000F007C117D /* Assets.xcassets in Resources */,\r\n\t\t\t\t97C146FC1CF9000F007C117D /* Main.storyboard in Resources */,\r\n\t\t\t);\r\n\t\t\trunOnlyForDeploymentPostprocessing = 0;\r\n\t\t};\r\n/* End PBXResourcesBuildPhase section */\r\n\r\n/* Begin PBXShellScriptBuildPhase section */\r\n\t\t3B06AD1E1E4923F5004D2608 /* Thin Binary */ = {\r\n\t\t\tisa = PBXShellScriptBuildPhase;\r\n\t\t\tbuildActionMask = 2147483647;\r\n\t\t\tfiles = (\r\n\t\t\t);\r\n\t\t\tinputPaths = (\r\n\t\t\t);\r\n\t\t\tname = \"Thin Binary\";\r\n\t\t\toutputPaths = (\r\n\t\t\t);\r\n\t\t\trunOnlyForDeploymentPostprocessing = 0;\r\n\t\t\tshellPath = /bin/sh;\r\n\t\t\tshellScript = \"/bin/sh \\\"$FLUTTER_ROOT/packages/flutter_tools/bin/xcode_backend.sh\\\" embed_and_thin\";\r\n\t\t};\r\n\t\t9740EEB61CF901F6004384FC /* Run Script */ = {\r\n\t\t\tisa = PBXShellScriptBuildPhase;\r\n\t\t\tbuildActionMask = 2147483647;\r\n\t\t\tfiles = (\r\n\t\t\t);\r\n\t\t\tinputPaths = (\r\n\t\t\t);\r\n\t\t\tname = \"Run Script\";\r\n\t\t\toutputPaths = (\r\n\t\t\t);\r\n\t\t\trunOnlyForDeploymentPostprocessing = 0;\r\n\t\t\tshellPath = /bin/sh;\r\n\t\t\tshellScript = \"/bin/sh \\\"$FLUTTER_ROOT/packages/flutter_tools/bin/xcode_backend.sh\\\" build\";\r\n\t\t};\r\n/* End PBXShellScriptBuildPhase section */\r\n\r\n/* Begin PBXSourcesBuildPhase section */\r\n\t\t97C146EA1CF9000F007C117D /* Sources */ = {\r\n\t\t\tisa = PBXSourcesBuildPhase;\r\n\t\t\tbuildActionMask = 2147483647;\r\n\t\t\tfiles = (\r\n\t\t\t\t74858FAF1ED2DC5600515810 /* AppDelegate.swift in Sources */,\r\n\t\t\t\t1498D2341E8E89220040F4C2 /* GeneratedPluginRegistrant.m in Sources */,\r\n\t\t\t);\r\n\t\t\trunOnlyForDeploymentPostprocessing = 0;\r\n\t\t};\r\n/* End PBXSourcesBuildPhase section */\r\n\r\n/* Begin PBXVariantGroup section */\r\n\t\t97C146FA1CF9000F007C117D /* Main.storyboard */ = {\r\n\t\t\tisa = PBXVariantGroup;\r\n\t\t\tchildren = (\r\n\t\t\t\t97C146FB1CF9000F007C117D /* Base */,\r\n\t\t\t);\r\n\t\t\tname = Main.storyboard;\r\n\t\t\tsourceTree = \"<group>\";\r\n\t\t};\r\n\t\t97C146FF1CF9000F007C117D /* LaunchScreen.storyboard */ = {\r\n\t\t\tisa = PBXVariantGroup;\r\n\t\t\tchildren = (\r\n\t\t\t\t97C147001CF9000F007C117D /* Base */,\r\n\t\t\t);\r\n\t\t\tname = LaunchScreen.storyboard;\r\n\t\t\tsourceTree = \"<group>\";\r\n\t\t};\r\n/* End PBXVariantGroup section */\r\n\r\n/* Begin XCBuildConfiguration section */\r\n\t\t249021D3217E4FDB00AE95B9 /* Profile */ = {\r\n\t\t\tisa = XCBuildConfiguration;\r\n\t\t\tbuildSettings = {\r\n\t\t\t\tALWAYS_SEARCH_USER_PATHS = NO;\r\n\t\t\t\tCLANG_ANALYZER_NONNULL = YES;\r\n\t\t\t\tCLANG_CXX_LANGUAGE_STANDARD = \"gnu++0x\";\r\n\t\t\t\tCLANG_CXX_LIBRARY = \"libc++\";\r\n\t\t\t\tCLANG_ENABLE_MODULES = YES;\r\n\t\t\t\tCLANG_ENABLE_OBJC_ARC = YES;\r\n\t\t\t\tCLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;\r\n\t\t\t\tCLANG_WARN_BOOL_CONVERSION = YES;\r\n\t\t\t\tCLANG_WARN_COMMA = YES;\r\n\t\t\t\tCLANG_WARN_CONSTANT_CONVERSION = YES;\r\n\t\t\t\tCLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;\r\n\t\t\t\tCLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;\r\n\t\t\t\tCLANG_WARN_EMPTY_BODY = YES;\r\n\t\t\t\tCLANG_WARN_ENUM_CONVERSION = YES;\r\n\t\t\t\tCLANG_WARN_INFINITE_RECURSION = YES;\r\n\t\t\t\tCLANG_WARN_INT_CONVERSION = YES;\r\n\t\t\t\tCLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;\r\n\t\t\t\tCLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;\r\n\t\t\t\tCLANG_WARN_OBJC_LITERAL_CONVERSION = YES;\r\n\t\t\t\tCLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;\r\n\t\t\t\tCLANG_WARN_RANGE_LOOP_ANALYSIS = YES;\r\n\t\t\t\tCLANG_WARN_STRICT_PROTOTYPES = YES;\r\n\t\t\t\tCLANG_WARN_SUSPICIOUS_MOVE = YES;\r\n\t\t\t\tCLANG_WARN_UNREACHABLE_CODE = YES;\r\n\t\t\t\tCLANG_WARN__DUPLICATE_METHOD_MATCH = YES;\r\n\t\t\t\t\"CODE_SIGN_IDENTITY[sdk=iphoneos*]\" = \"iPhone Developer\";\r\n\t\t\t\tCOPY_PHASE_STRIP = NO;\r\n\t\t\t\tDEBUG_INFORMATION_FORMAT = \"dwarf-with-dsym\";\r\n\t\t\t\tENABLE_NS_ASSERTIONS = NO;\r\n\t\t\t\tENABLE_STRICT_OBJC_MSGSEND = YES;\r\n\t\t\t\tGCC_C_LANGUAGE_STANDARD = gnu99;\r\n\t\t\t\tGCC_NO_COMMON_BLOCKS = YES;\r\n\t\t\t\tGCC_WARN_64_TO_32_BIT_CONVERSION = YES;\r\n\t\t\t\tGCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;\r\n\t\t\t\tGCC_WARN_UNDECLARED_SELECTOR = YES;\r\n\t\t\t\tGCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;\r\n\t\t\t\tGCC_WARN_UNUSED_FUNCTION = YES;\r\n\t\t\t\tGCC_WARN_UNUSED_VARIABLE = YES;\r\n\t\t\t\tIPHONEOS_DEPLOYMENT_TARGET = 9.0;\r\n\t\t\t\tMTL_ENABLE_DEBUG_INFO = NO;\r\n\t\t\t\tSDKROOT = iphoneos;\r\n\t\t\t\tSUPPORTED_PLATFORMS = iphoneos;\r\n\t\t\t\tTARGETED_DEVICE_FAMILY = \"1,2\";\r\n\t\t\t\tVALIDATE_PRODUCT = YES;\r\n\t\t\t};\r\n\t\t\tname = Profile;\r\n\t\t};\r\n\t\t249021D4217E4FDB00AE95B9 /* Profile */ = {\r\n\t\t\tisa = XCBuildConfiguration;\r\n\t\t\tbaseConfigurationReference = 7AFA3C8E1D35360C0083082E /* Release.xcconfig */;\r\n\t\t\tbuildSettings = {\r\n\t\t\t\tASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;\r\n\t\t\t\tCLANG_ENABLE_MODULES = YES;\r\n\t\t\t\tCURRENT_PROJECT_VERSION = \"$(FLUTTER_BUILD_NUMBER)\";\r\n\t\t\t\tENABLE_BITCODE = NO;\r\n\t\t\t\tINFOPLIST_FILE = Runner/Info.plist;\r\n\t\t\t\tLD_RUNPATH_SEARCH_PATHS = \"$(inherited) @executable_path/Frameworks\";\r\n\t\t\t\tPRODUCT_BUNDLE_IDENTIFIER = com.example.justOneUpgraded;\r\n\t\t\t\tPRODUCT_NAME = \"$(TARGET_NAME)\";\r\n\t\t\t\tSWIFT_OBJC_BRIDGING_HEADER = \"Runner/Runner-Bridging-Header.h\";\r\n\t\t\t\tSWIFT_VERSION = 5.0;\r\n\t\t\t\tVERSIONING_SYSTEM = \"apple-generic\";\r\n\t\t\t};\r\n\t\t\tname = Profile;\r\n\t\t};\r\n\t\t97C147031CF9000F007C117D /* Debug */ = {\r\n\t\t\tisa = XCBuildConfiguration;\r\n\t\t\tbuildSettings = {\r\n\t\t\t\tALWAYS_SEARCH_USER_PATHS = NO;\r\n\t\t\t\tCLANG_ANALYZER_NONNULL = YES;\r\n\t\t\t\tCLANG_CXX_LANGUAGE_STANDARD = \"gnu++0x\";\r\n\t\t\t\tCLANG_CXX_LIBRARY = \"libc++\";\r\n\t\t\t\tCLANG_ENABLE_MODULES = YES;\r\n\t\t\t\tCLANG_ENABLE_OBJC_ARC = YES;\r\n\t\t\t\tCLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;\r\n\t\t\t\tCLANG_WARN_BOOL_CONVERSION = YES;\r\n\t\t\t\tCLANG_WARN_COMMA = YES;\r\n\t\t\t\tCLANG_WARN_CONSTANT_CONVERSION = YES;\r\n\t\t\t\tCLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;\r\n\t\t\t\tCLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;\r\n\t\t\t\tCLANG_WARN_EMPTY_BODY = YES;\r\n\t\t\t\tCLANG_WARN_ENUM_CONVERSION = YES;\r\n\t\t\t\tCLANG_WARN_INFINITE_RECURSION = YES;\r\n\t\t\t\tCLANG_WARN_INT_CONVERSION = YES;\r\n\t\t\t\tCLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;\r\n\t\t\t\tCLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;\r\n\t\t\t\tCLANG_WARN_OBJC_LITERAL_CONVERSION = YES;\r\n\t\t\t\tCLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;\r\n\t\t\t\tCLANG_WARN_RANGE_LOOP_ANALYSIS = YES;\r\n\t\t\t\tCLANG_WARN_STRICT_PROTOTYPES = YES;\r\n\t\t\t\tCLANG_WARN_SUSPICIOUS_MOVE = YES;\r\n\t\t\t\tCLANG_WARN_UNREACHABLE_CODE = YES;\r\n\t\t\t\tCLANG_WARN__DUPLICATE_METHOD_MATCH = YES;\r\n\t\t\t\t\"CODE_SIGN_IDENTITY[sdk=iphoneos*]\" = \"iPhone Developer\";\r\n\t\t\t\tCOPY_PHASE_STRIP = NO;\r\n\t\t\t\tDEBUG_INFORMATION_FORMAT = dwarf;\r\n\t\t\t\tENABLE_STRICT_OBJC_MSGSEND = YES;\r\n\t\t\t\tENABLE_TESTABILITY = YES;\r\n\t\t\t\tGCC_C_LANGUAGE_STANDARD = gnu99;\r\n\t\t\t\tGCC_DYNAMIC_NO_PIC = NO;\r\n\t\t\t\tGCC_NO_COMMON_BLOCKS = YES;\r\n\t\t\t\tGCC_OPTIMIZATION_LEVEL = 0;\r\n\t\t\t\tGCC_PREPROCESSOR_DEFINITIONS = (\r\n\t\t\t\t\t\"DEBUG=1\",\r\n\t\t\t\t\t\"$(inherited)\",\r\n\t\t\t\t);\r\n\t\t\t\tGCC_WARN_64_TO_32_BIT_CONVERSION = YES;\r\n\t\t\t\tGCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;\r\n\t\t\t\tGCC_WARN_UNDECLARED_SELECTOR = YES;\r\n\t\t\t\tGCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;\r\n\t\t\t\tGCC_WARN_UNUSED_FUNCTION = YES;\r\n\t\t\t\tGCC_WARN_UNUSED_VARIABLE = YES;\r\n\t\t\t\tIPHONEOS_DEPLOYMENT_TARGET = 9.0;\r\n\t\t\t\tMTL_ENABLE_DEBUG_INFO = YES;\r\n\t\t\t\tONLY_ACTIVE_ARCH = YES;\r\n\t\t\t\tSDKROOT = iphoneos;\r\n\t\t\t\tTARGETED_DEVICE_FAMILY = \"1,2\";\r\n\t\t\t};\r\n\t\t\tname = Debug;\r\n\t\t};\r\n\t\t97C147041CF9000F007C117D /* Release */ = {\r\n\t\t\tisa = XCBuildConfiguration;\r\n\t\t\tbuildSettings = {\r\n\t\t\t\tALWAYS_SEARCH_USER_PATHS = NO;\r\n\t\t\t\tCLANG_ANALYZER_NONNULL = YES;\r\n\t\t\t\tCLANG_CXX_LANGUAGE_STANDARD = \"gnu++0x\";\r\n\t\t\t\tCLANG_CXX_LIBRARY = \"libc++\";\r\n\t\t\t\tCLANG_ENABLE_MODULES = YES;\r\n\t\t\t\tCLANG_ENABLE_OBJC_ARC = YES;\r\n\t\t\t\tCLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;\r\n\t\t\t\tCLANG_WARN_BOOL_CONVERSION = YES;\r\n\t\t\t\tCLANG_WARN_COMMA = YES;\r\n\t\t\t\tCLANG_WARN_CONSTANT_CONVERSION = YES;\r\n\t\t\t\tCLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;\r\n\t\t\t\tCLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;\r\n\t\t\t\tCLANG_WARN_EMPTY_BODY = YES;\r\n\t\t\t\tCLANG_WARN_ENUM_CONVERSION = YES;\r\n\t\t\t\tCLANG_WARN_INFINITE_RECURSION = YES;\r\n\t\t\t\tCLANG_WARN_INT_CONVERSION = YES;\r\n\t\t\t\tCLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;\r\n\t\t\t\tCLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;\r\n\t\t\t\tCLANG_WARN_OBJC_LITERAL_CONVERSION = YES;\r\n\t\t\t\tCLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;\r\n\t\t\t\tCLANG_WARN_RANGE_LOOP_ANALYSIS = YES;\r\n\t\t\t\tCLANG_WARN_STRICT_PROTOTYPES = YES;\r\n\t\t\t\tCLANG_WARN_SUSPICIOUS_MOVE = YES;\r\n\t\t\t\tCLANG_WARN_UNREACHABLE_CODE = YES;\r\n\t\t\t\tCLANG_WARN__DUPLICATE_METHOD_MATCH = YES;\r\n\t\t\t\t\"CODE_SIGN_IDENTITY[sdk=iphoneos*]\" = \"iPhone Developer\";\r\n\t\t\t\tCOPY_PHASE_STRIP = NO;\r\n\t\t\t\tDEBUG_INFORMATION_FORMAT = \"dwarf-with-dsym\";\r\n\t\t\t\tENABLE_NS_ASSERTIONS = NO;\r\n\t\t\t\tENABLE_STRICT_OBJC_MSGSEND = YES;\r\n\t\t\t\tGCC_C_LANGUAGE_STANDARD = gnu99;\r\n\t\t\t\tGCC_NO_COMMON_BLOCKS = YES;\r\n\t\t\t\tGCC_WARN_64_TO_32_BIT_CONVERSION = YES;\r\n\t\t\t\tGCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;\r\n\t\t\t\tGCC_WARN_UNDECLARED_SELECTOR = YES;\r\n\t\t\t\tGCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;\r\n\t\t\t\tGCC_WARN_UNUSED_FUNCTION = YES;\r\n\t\t\t\tGCC_WARN_UNUSED_VARIABLE = YES;\r\n\t\t\t\tIPHONEOS_DEPLOYMENT_TARGET = 9.0;\r\n\t\t\t\tMTL_ENABLE_DEBUG_INFO = NO;\r\n\t\t\t\tSDKROOT = iphoneos;\r\n\t\t\t\tSUPPORTED_PLATFORMS = iphoneos;\r\n\t\t\t\tSWIFT_OPTIMIZATION_LEVEL = \"-Owholemodule\";\r\n\t\t\t\tTARGETED_DEVICE_FAMILY = \"1,2\";\r\n\t\t\t\tVALIDATE_PRODUCT = YES;\r\n\t\t\t};\r\n\t\t\tname = Release;\r\n\t\t};\r\n\t\t97C147061CF9000F007C117D /* Debug */ = {\r\n\t\t\tisa = XCBuildConfiguration;\r\n\t\t\tbaseConfigurationReference = 9740EEB21CF90195004384FC /* Debug.xcconfig */;\r\n\t\t\tbuildSettings = {\r\n\t\t\t\tASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;\r\n\t\t\t\tCLANG_ENABLE_MODULES = YES;\r\n\t\t\t\tCURRENT_PROJECT_VERSION = \"$(FLUTTER_BUILD_NUMBER)\";\r\n\t\t\t\tENABLE_BITCODE = NO;\r\n\t\t\t\tINFOPLIST_FILE = Runner/Info.plist;\r\n\t\t\t\tLD_RUNPATH_SEARCH_PATHS = \"$(inherited) @executable_path/Frameworks\";\r\n\t\t\t\tPRODUCT_BUNDLE_IDENTIFIER = com.example.justOneUpgraded;\r\n\t\t\t\tPRODUCT_NAME = \"$(TARGET_NAME)\";\r\n\t\t\t\tSWIFT_OBJC_BRIDGING_HEADER = \"Runner/Runner-Bridging-Header.h\";\r\n\t\t\t\tSWIFT_OPTIMIZATION_LEVEL = \"-Onone\";\r\n\t\t\t\tSWIFT_VERSION = 5.0;\r\n\t\t\t\tVERSIONING_SYSTEM = \"apple-generic\";\r\n\t\t\t};\r\n\t\t\tname = Debug;\r\n\t\t};\r\n\t\t97C147071CF9000F007C117D /* Release */ = {\r\n\t\t\tisa = XCBuildConfiguration;\r\n\t\t\tbaseConfigurationReference = 7AFA3C8E1D35360C0083082E /* Release.xcconfig */;\r\n\t\t\tbuildSettings = {\r\n\t\t\t\tASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;\r\n\t\t\t\tCLANG_ENABLE_MODULES = YES;\r\n\t\t\t\tCURRENT_PROJECT_VERSION = \"$(FLUTTER_BUILD_NUMBER)\";\r\n\t\t\t\tENABLE_BITCODE = NO;\r\n\t\t\t\tINFOPLIST_FILE = Runner/Info.plist;\r\n\t\t\t\tLD_RUNPATH_SEARCH_PATHS = \"$(inherited) @executable_path/Frameworks\";\r\n\t\t\t\tPRODUCT_BUNDLE_IDENTIFIER = com.example.justOneUpgraded;\r\n\t\t\t\tPRODUCT_NAME = \"$(TARGET_NAME)\";\r\n\t\t\t\tSWIFT_OBJC_BRIDGING_HEADER = \"Runner/Runner-Bridging-Header.h\";\r\n\t\t\t\tSWIFT_VERSION = 5.0;\r\n\t\t\t\tVERSIONING_SYSTEM = \"apple-generic\";\r\n\t\t\t};\r\n\t\t\tname = Release;\r\n\t\t};\r\n/* End XCBuildConfiguration section */\r\n\r\n/* Begin XCConfigurationList section */\r\n\t\t97C146E91CF9000F007C117D /* Build configuration list for PBXProject \"Runner\" */ = {\r\n\t\t\tisa = XCConfigurationList;\r\n\t\t\tbuildConfigurations = (\r\n\t\t\t\t97C147031CF9000F007C117D /* Debug */,\r\n\t\t\t\t97C147041CF9000F007C117D /* Release */,\r\n\t\t\t\t249021D3217E4FDB00AE95B9 /* Profile */,\r\n\t\t\t);\r\n\t\t\tdefaultConfigurationIsVisible = 0;\r\n\t\t\tdefaultConfigurationName = Release;\r\n\t\t};\r\n\t\t97C147051CF9000F007C117D /* Build configuration list for PBXNativeTarget \"Runner\" */ = {\r\n\t\t\tisa = XCConfigurationList;\r\n\t\t\tbuildConfigurations = (\r\n\t\t\t\t97C147061CF9000F007C117D /* Debug */,\r\n\t\t\t\t97C147071CF9000F007C117D /* Release */,\r\n\t\t\t\t249021D4217E4FDB00AE95B9 /* Profile */,\r\n\t\t\t);\r\n\t\t\tdefaultConfigurationIsVisible = 0;\r\n\t\t\tdefaultConfigurationName = Release;\r\n\t\t};\r\n/* End XCConfigurationList section */\r\n\t};\r\n\trootObject = 97C146E61CF9000F007C117D /* Project object */;\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/ios/Runner.xcodeproj/project.pbxproj b/ios/Runner.xcodeproj/project.pbxproj
+--- a/ios/Runner.xcodeproj/project.pbxproj	(revision 06b3bff4fc26610fa871089f3cb877e2ddb70c6e)
++++ b/ios/Runner.xcodeproj/project.pbxproj	(date 1608371862220)
+@@ -289,8 +289,16 @@
+ 				CLANG_ENABLE_MODULES = YES;
+ 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
+ 				ENABLE_BITCODE = NO;
++				FRAMEWORK_SEARCH_PATHS = (
++					"$(inherited)",
++					"$(PROJECT_DIR)/Flutter",
++				);
+ 				INFOPLIST_FILE = Runner/Info.plist;
+ 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
++				LIBRARY_SEARCH_PATHS = (
++					"$(inherited)",
++					"$(PROJECT_DIR)/Flutter",
++				);
+ 				PRODUCT_BUNDLE_IDENTIFIER = com.example.justOneUpgraded;
+ 				PRODUCT_NAME = "$(TARGET_NAME)";
+ 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
+@@ -413,8 +421,16 @@
+ 				CLANG_ENABLE_MODULES = YES;
+ 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
+ 				ENABLE_BITCODE = NO;
++				FRAMEWORK_SEARCH_PATHS = (
++					"$(inherited)",
++					"$(PROJECT_DIR)/Flutter",
++				);
+ 				INFOPLIST_FILE = Runner/Info.plist;
+ 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
++				LIBRARY_SEARCH_PATHS = (
++					"$(inherited)",
++					"$(PROJECT_DIR)/Flutter",
++				);
+ 				PRODUCT_BUNDLE_IDENTIFIER = com.example.justOneUpgraded;
+ 				PRODUCT_NAME = "$(TARGET_NAME)";
+ 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
+@@ -432,8 +448,16 @@
+ 				CLANG_ENABLE_MODULES = YES;
+ 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
+ 				ENABLE_BITCODE = NO;
++				FRAMEWORK_SEARCH_PATHS = (
++					"$(inherited)",
++					"$(PROJECT_DIR)/Flutter",
++				);
+ 				INFOPLIST_FILE = Runner/Info.plist;
+ 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
++				LIBRARY_SEARCH_PATHS = (
++					"$(inherited)",
++					"$(PROJECT_DIR)/Flutter",
++				);
+ 				PRODUCT_BUNDLE_IDENTIFIER = com.example.justOneUpgraded;
+ 				PRODUCT_NAME = "$(TARGET_NAME)";
+ 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
+Index: .metadata
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+># This file tracks properties of this Flutter project.\r\n# Used by Flutter tool to assess capabilities and perform upgrades etc.\r\n#\r\n# This file should be version controlled and should not be manually edited.\r\n\r\nversion:\r\n  revision: b793285329fa4289a3076882308ef3781bd2de18\r\n  channel: master\r\n\r\nproject_type: app\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.metadata b/.metadata
+--- a/.metadata	(revision 06b3bff4fc26610fa871089f3cb877e2ddb70c6e)
++++ b/.metadata	(date 1608371862123)
+@@ -4,7 +4,7 @@
+ # This file should be version controlled and should not be manually edited.
+ 
+ version:
+-  revision: b793285329fa4289a3076882308ef3781bd2de18
+-  channel: master
++  revision: 78910062997c3a836feee883712c241a5fd22983
++  channel: stable
+ 
+ project_type: app
+Index: android/app/src/main/AndroidManifest.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><manifest xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    package=\"com.example.just_one_upgraded\">\r\n   <application\r\n        android:label=\"just_one_upgraded\"\r\n        android:icon=\"@mipmap/ic_launcher\">\r\n        <activity\r\n            android:name=\".MainActivity\"\r\n            android:launchMode=\"singleTop\"\r\n            android:theme=\"@style/LaunchTheme\"\r\n            android:configChanges=\"orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode\"\r\n            android:hardwareAccelerated=\"true\"\r\n            android:windowSoftInputMode=\"adjustResize\">\r\n            <!-- Specifies an Android theme to apply to this Activity as soon as\r\n                 the Android process has started. This theme is visible to the user\r\n                 while the Flutter UI initializes. After that, this theme continues\r\n                 to determine the Window background behind the Flutter UI. -->\r\n            <meta-data\r\n              android:name=\"io.flutter.embedding.android.NormalTheme\"\r\n              android:resource=\"@style/NormalTheme\"\r\n              />\r\n            <!-- Displays an Android View that continues showing the launch screen\r\n                 Drawable until Flutter paints its first frame, then this splash\r\n                 screen fades out. A splash screen is useful to avoid any visual\r\n                 gap between the end of Android's launch screen and the painting of\r\n                 Flutter's first frame. -->\r\n            <meta-data\r\n              android:name=\"io.flutter.embedding.android.SplashScreenDrawable\"\r\n              android:resource=\"@drawable/launch_background\"\r\n              />\r\n            <intent-filter>\r\n                <action android:name=\"android.intent.action.MAIN\"/>\r\n                <category android:name=\"android.intent.category.LAUNCHER\"/>\r\n            </intent-filter>\r\n        </activity>\r\n        <!-- Don't delete the meta-data below.\r\n             This is used by the Flutter tool to generate GeneratedPluginRegistrant.java -->\r\n        <meta-data\r\n            android:name=\"flutterEmbedding\"\r\n            android:value=\"2\" />\r\n    </application>\r\n</manifest>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/android/app/src/main/AndroidManifest.xml b/android/app/src/main/AndroidManifest.xml
+--- a/android/app/src/main/AndroidManifest.xml	(revision 06b3bff4fc26610fa871089f3cb877e2ddb70c6e)
++++ b/android/app/src/main/AndroidManifest.xml	(date 1608371862163)
+@@ -1,6 +1,12 @@
+ <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+     package="com.example.just_one_upgraded">
+-   <application
++    <!-- io.flutter.app.FlutterApplication is an android.app.Application that
++         calls FlutterMain.startInitialization(this); in its onCreate method.
++         In most cases you can leave this as-is, but you if you want to provide
++         additional functionality it is fine to subclass or reimplement
++         FlutterApplication and put your custom class here. -->
++    <application
++        android:name="io.flutter.app.FlutterApplication"
+         android:label="just_one_upgraded"
+         android:icon="@mipmap/ic_launcher">
+         <activity
+Index: pubspec.lock
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+># Generated by pub\r\n# See https://dart.dev/tools/pub/glossary#lockfile\r\npackages:\r\n  _fe_analyzer_shared:\r\n    dependency: transitive\r\n    description:\r\n      name: _fe_analyzer_shared\r\n      url: \"https://pub.dartlang.org\"\r\n    source: hosted\r\n    version: \"12.0.0\"\r\n  analyzer:\r\n    dependency: transitive\r\n    description:\r\n      name: analyzer\r\n      url: \"https://pub.dartlang.org\"\r\n    source: hosted\r\n    version: \"0.40.6\"\r\n  archive:\r\n    dependency: transitive\r\n    description:\r\n      name: archive\r\n      url: \"https://pub.dartlang.org\"\r\n    source: hosted\r\n    version: \"2.0.13\"\r\n  args:\r\n    dependency: transitive\r\n    description:\r\n      name: args\r\n      url: \"https://pub.dartlang.org\"\r\n    source: hosted\r\n    version: \"1.6.0\"\r\n  async:\r\n    dependency: transitive\r\n    description:\r\n      name: async\r\n      url: \"https://pub.dartlang.org\"\r\n    source: hosted\r\n    version: \"2.5.0-nullsafety.3\"\r\n  boolean_selector:\r\n    dependency: transitive\r\n    description:\r\n      name: boolean_selector\r\n      url: \"https://pub.dartlang.org\"\r\n    source: hosted\r\n    version: \"2.1.0-nullsafety.3\"\r\n  characters:\r\n    dependency: transitive\r\n    description:\r\n      name: characters\r\n      url: \"https://pub.dartlang.org\"\r\n    source: hosted\r\n    version: \"1.1.0-nullsafety.5\"\r\n  charcode:\r\n    dependency: transitive\r\n    description:\r\n      name: charcode\r\n      url: \"https://pub.dartlang.org\"\r\n    source: hosted\r\n    version: \"1.2.0-nullsafety.3\"\r\n  cli_util:\r\n    dependency: transitive\r\n    description:\r\n      name: cli_util\r\n      url: \"https://pub.dartlang.org\"\r\n    source: hosted\r\n    version: \"0.2.0\"\r\n  clock:\r\n    dependency: transitive\r\n    description:\r\n      name: clock\r\n      url: \"https://pub.dartlang.org\"\r\n    source: hosted\r\n    version: \"1.1.0-nullsafety.3\"\r\n  collection:\r\n    dependency: transitive\r\n    description:\r\n      name: collection\r\n      url: \"https://pub.dartlang.org\"\r\n    source: hosted\r\n    version: \"1.15.0-nullsafety.5\"\r\n  convert:\r\n    dependency: transitive\r\n    description:\r\n      name: convert\r\n      url: \"https://pub.dartlang.org\"\r\n    source: hosted\r\n    version: \"2.1.1\"\r\n  coverage:\r\n    dependency: transitive\r\n    description:\r\n      name: coverage\r\n      url: \"https://pub.dartlang.org\"\r\n    source: hosted\r\n    version: \"0.14.2\"\r\n  crypto:\r\n    dependency: transitive\r\n    description:\r\n      name: crypto\r\n      url: \"https://pub.dartlang.org\"\r\n    source: hosted\r\n    version: \"2.1.5\"\r\n  cupertino_icons:\r\n    dependency: \"direct main\"\r\n    description:\r\n      name: cupertino_icons\r\n      url: \"https://pub.dartlang.org\"\r\n    source: hosted\r\n    version: \"1.0.2\"\r\n  fake_async:\r\n    dependency: transitive\r\n    description:\r\n      name: fake_async\r\n      url: \"https://pub.dartlang.org\"\r\n    source: hosted\r\n    version: \"1.2.0-nullsafety.3\"\r\n  file:\r\n    dependency: transitive\r\n    description:\r\n      name: file\r\n      url: \"https://pub.dartlang.org\"\r\n    source: hosted\r\n    version: \"6.0.0-nullsafety.4\"\r\n  flutter:\r\n    dependency: \"direct main\"\r\n    description: flutter\r\n    source: sdk\r\n    version: \"0.0.0\"\r\n  flutter_driver:\r\n    dependency: transitive\r\n    description: flutter\r\n    source: sdk\r\n    version: \"0.0.0\"\r\n  flutter_test:\r\n    dependency: \"direct dev\"\r\n    description: flutter\r\n    source: sdk\r\n    version: \"0.0.0\"\r\n  fuchsia_remote_debug_protocol:\r\n    dependency: transitive\r\n    description: flutter\r\n    source: sdk\r\n    version: \"0.0.0\"\r\n  glob:\r\n    dependency: transitive\r\n    description:\r\n      name: glob\r\n      url: \"https://pub.dartlang.org\"\r\n    source: hosted\r\n    version: \"1.2.0\"\r\n  integration_test:\r\n    dependency: \"direct dev\"\r\n    description: flutter\r\n    source: sdk\r\n    version: \"0.9.2+2\"\r\n  io:\r\n    dependency: transitive\r\n    description:\r\n      name: io\r\n      url: \"https://pub.dartlang.org\"\r\n    source: hosted\r\n    version: \"0.3.4\"\r\n  js:\r\n    dependency: transitive\r\n    description:\r\n      name: js\r\n      url: \"https://pub.dartlang.org\"\r\n    source: hosted\r\n    version: \"0.6.3-nullsafety.3\"\r\n  json_rpc_2:\r\n    dependency: transitive\r\n    description:\r\n      name: json_rpc_2\r\n      url: \"https://pub.dartlang.org\"\r\n    source: hosted\r\n    version: \"2.2.2\"\r\n  logging:\r\n    dependency: transitive\r\n    description:\r\n      name: logging\r\n      url: \"https://pub.dartlang.org\"\r\n    source: hosted\r\n    version: \"0.11.4\"\r\n  matcher:\r\n    dependency: transitive\r\n    description:\r\n      name: matcher\r\n      url: \"https://pub.dartlang.org\"\r\n    source: hosted\r\n    version: \"0.12.10-nullsafety.3\"\r\n  meta:\r\n    dependency: transitive\r\n    description:\r\n      name: meta\r\n      url: \"https://pub.dartlang.org\"\r\n    source: hosted\r\n    version: \"1.3.0-nullsafety.6\"\r\n  node_interop:\r\n    dependency: transitive\r\n    description:\r\n      name: node_interop\r\n      url: \"https://pub.dartlang.org\"\r\n    source: hosted\r\n    version: \"1.2.1\"\r\n  node_io:\r\n    dependency: transitive\r\n    description:\r\n      name: node_io\r\n      url: \"https://pub.dartlang.org\"\r\n    source: hosted\r\n    version: \"1.1.1\"\r\n  package_config:\r\n    dependency: transitive\r\n    description:\r\n      name: package_config\r\n      url: \"https://pub.dartlang.org\"\r\n    source: hosted\r\n    version: \"1.9.3\"\r\n  path:\r\n    dependency: transitive\r\n    description:\r\n      name: path\r\n      url: \"https://pub.dartlang.org\"\r\n    source: hosted\r\n    version: \"1.8.0-nullsafety.3\"\r\n  pedantic:\r\n    dependency: transitive\r\n    description:\r\n      name: pedantic\r\n      url: \"https://pub.dartlang.org\"\r\n    source: hosted\r\n    version: \"1.10.0-nullsafety.3\"\r\n  platform:\r\n    dependency: transitive\r\n    description:\r\n      name: platform\r\n      url: \"https://pub.dartlang.org\"\r\n    source: hosted\r\n    version: \"3.0.0-nullsafety.4\"\r\n  pool:\r\n    dependency: transitive\r\n    description:\r\n      name: pool\r\n      url: \"https://pub.dartlang.org\"\r\n    source: hosted\r\n    version: \"1.5.0-nullsafety.3\"\r\n  process:\r\n    dependency: transitive\r\n    description:\r\n      name: process\r\n      url: \"https://pub.dartlang.org\"\r\n    source: hosted\r\n    version: \"4.0.0-nullsafety.4\"\r\n  pub_semver:\r\n    dependency: transitive\r\n    description:\r\n      name: pub_semver\r\n      url: \"https://pub.dartlang.org\"\r\n    source: hosted\r\n    version: \"1.4.4\"\r\n  sky_engine:\r\n    dependency: transitive\r\n    description: flutter\r\n    source: sdk\r\n    version: \"0.0.99\"\r\n  source_map_stack_trace:\r\n    dependency: transitive\r\n    description:\r\n      name: source_map_stack_trace\r\n      url: \"https://pub.dartlang.org\"\r\n    source: hosted\r\n    version: \"2.1.0-nullsafety.4\"\r\n  source_maps:\r\n    dependency: transitive\r\n    description:\r\n      name: source_maps\r\n      url: \"https://pub.dartlang.org\"\r\n    source: hosted\r\n    version: \"0.10.10-nullsafety.3\"\r\n  source_span:\r\n    dependency: transitive\r\n    description:\r\n      name: source_span\r\n      url: \"https://pub.dartlang.org\"\r\n    source: hosted\r\n    version: \"1.8.0-nullsafety.4\"\r\n  stack_trace:\r\n    dependency: transitive\r\n    description:\r\n      name: stack_trace\r\n      url: \"https://pub.dartlang.org\"\r\n    source: hosted\r\n    version: \"1.10.0-nullsafety.6\"\r\n  stream_channel:\r\n    dependency: transitive\r\n    description:\r\n      name: stream_channel\r\n      url: \"https://pub.dartlang.org\"\r\n    source: hosted\r\n    version: \"2.1.0-nullsafety.3\"\r\n  string_scanner:\r\n    dependency: transitive\r\n    description:\r\n      name: string_scanner\r\n      url: \"https://pub.dartlang.org\"\r\n    source: hosted\r\n    version: \"1.1.0-nullsafety.3\"\r\n  sync_http:\r\n    dependency: transitive\r\n    description:\r\n      name: sync_http\r\n      url: \"https://pub.dartlang.org\"\r\n    source: hosted\r\n    version: \"0.2.0\"\r\n  term_glyph:\r\n    dependency: transitive\r\n    description:\r\n      name: term_glyph\r\n      url: \"https://pub.dartlang.org\"\r\n    source: hosted\r\n    version: \"1.2.0-nullsafety.3\"\r\n  test_api:\r\n    dependency: transitive\r\n    description:\r\n      name: test_api\r\n      url: \"https://pub.dartlang.org\"\r\n    source: hosted\r\n    version: \"0.2.19-nullsafety.6\"\r\n  test_core:\r\n    dependency: transitive\r\n    description:\r\n      name: test_core\r\n      url: \"https://pub.dartlang.org\"\r\n    source: hosted\r\n    version: \"0.3.12-nullsafety.9\"\r\n  typed_data:\r\n    dependency: transitive\r\n    description:\r\n      name: typed_data\r\n      url: \"https://pub.dartlang.org\"\r\n    source: hosted\r\n    version: \"1.3.0-nullsafety.5\"\r\n  vector_math:\r\n    dependency: transitive\r\n    description:\r\n      name: vector_math\r\n      url: \"https://pub.dartlang.org\"\r\n    source: hosted\r\n    version: \"2.1.0-nullsafety.5\"\r\n  vm_service:\r\n    dependency: transitive\r\n    description:\r\n      name: vm_service\r\n      url: \"https://pub.dartlang.org\"\r\n    source: hosted\r\n    version: \"5.5.0\"\r\n  watcher:\r\n    dependency: transitive\r\n    description:\r\n      name: watcher\r\n      url: \"https://pub.dartlang.org\"\r\n    source: hosted\r\n    version: \"0.9.7+15\"\r\n  web_socket_channel:\r\n    dependency: transitive\r\n    description:\r\n      name: web_socket_channel\r\n      url: \"https://pub.dartlang.org\"\r\n    source: hosted\r\n    version: \"1.1.0\"\r\n  webdriver:\r\n    dependency: transitive\r\n    description:\r\n      name: webdriver\r\n      url: \"https://pub.dartlang.org\"\r\n    source: hosted\r\n    version: \"2.1.2\"\r\n  yaml:\r\n    dependency: transitive\r\n    description:\r\n      name: yaml\r\n      url: \"https://pub.dartlang.org\"\r\n    source: hosted\r\n    version: \"2.2.1\"\r\nsdks:\r\n  dart: \">=2.12.0-0.0 <3.0.0\"\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/pubspec.lock b/pubspec.lock
+--- a/pubspec.lock	(revision 06b3bff4fc26610fa871089f3cb877e2ddb70c6e)
++++ b/pubspec.lock	(date 1608371863835)
+@@ -1,385 +1,153 @@
+ # Generated by pub
+ # See https://dart.dev/tools/pub/glossary#lockfile
+ packages:
+-  _fe_analyzer_shared:
+-    dependency: transitive
+-    description:
+-      name: _fe_analyzer_shared
+-      url: "https://pub.dartlang.org"
+-    source: hosted
+-    version: "12.0.0"
+-  analyzer:
+-    dependency: transitive
+-    description:
+-      name: analyzer
+-      url: "https://pub.dartlang.org"
+-    source: hosted
+-    version: "0.40.6"
+-  archive:
+-    dependency: transitive
+-    description:
+-      name: archive
+-      url: "https://pub.dartlang.org"
+-    source: hosted
+-    version: "2.0.13"
+-  args:
+-    dependency: transitive
+-    description:
+-      name: args
+-      url: "https://pub.dartlang.org"
+-    source: hosted
+-    version: "1.6.0"
+   async:
+     dependency: transitive
+     description:
+       name: async
+       url: "https://pub.dartlang.org"
+     source: hosted
+-    version: "2.5.0-nullsafety.3"
++    version: "2.5.0-nullsafety.1"
+   boolean_selector:
+     dependency: transitive
+     description:
+       name: boolean_selector
+       url: "https://pub.dartlang.org"
+     source: hosted
+-    version: "2.1.0-nullsafety.3"
++    version: "2.1.0-nullsafety.1"
+   characters:
+     dependency: transitive
+     description:
+       name: characters
+       url: "https://pub.dartlang.org"
+     source: hosted
+-    version: "1.1.0-nullsafety.5"
++    version: "1.1.0-nullsafety.3"
+   charcode:
+     dependency: transitive
+     description:
+       name: charcode
+       url: "https://pub.dartlang.org"
+     source: hosted
+-    version: "1.2.0-nullsafety.3"
+-  cli_util:
+-    dependency: transitive
+-    description:
+-      name: cli_util
+-      url: "https://pub.dartlang.org"
+-    source: hosted
+-    version: "0.2.0"
++    version: "1.2.0-nullsafety.1"
+   clock:
+     dependency: transitive
+     description:
+       name: clock
+       url: "https://pub.dartlang.org"
+     source: hosted
+-    version: "1.1.0-nullsafety.3"
++    version: "1.1.0-nullsafety.1"
+   collection:
+     dependency: transitive
+     description:
+       name: collection
+       url: "https://pub.dartlang.org"
+     source: hosted
+-    version: "1.15.0-nullsafety.5"
+-  convert:
+-    dependency: transitive
+-    description:
+-      name: convert
+-      url: "https://pub.dartlang.org"
+-    source: hosted
+-    version: "2.1.1"
+-  coverage:
+-    dependency: transitive
+-    description:
+-      name: coverage
+-      url: "https://pub.dartlang.org"
+-    source: hosted
+-    version: "0.14.2"
+-  crypto:
+-    dependency: transitive
+-    description:
+-      name: crypto
+-      url: "https://pub.dartlang.org"
+-    source: hosted
+-    version: "2.1.5"
++    version: "1.15.0-nullsafety.3"
+   cupertino_icons:
+     dependency: "direct main"
+     description:
+       name: cupertino_icons
+       url: "https://pub.dartlang.org"
+     source: hosted
+-    version: "1.0.2"
++    version: "1.0.0"
+   fake_async:
+     dependency: transitive
+     description:
+       name: fake_async
+       url: "https://pub.dartlang.org"
+     source: hosted
+-    version: "1.2.0-nullsafety.3"
+-  file:
+-    dependency: transitive
+-    description:
+-      name: file
+-      url: "https://pub.dartlang.org"
+-    source: hosted
+-    version: "6.0.0-nullsafety.4"
++    version: "1.2.0-nullsafety.1"
+   flutter:
+     dependency: "direct main"
+     description: flutter
+     source: sdk
+     version: "0.0.0"
+-  flutter_driver:
+-    dependency: transitive
+-    description: flutter
+-    source: sdk
+-    version: "0.0.0"
+   flutter_test:
+     dependency: "direct dev"
+     description: flutter
+     source: sdk
+     version: "0.0.0"
+-  fuchsia_remote_debug_protocol:
+-    dependency: transitive
+-    description: flutter
+-    source: sdk
+-    version: "0.0.0"
+-  glob:
+-    dependency: transitive
+-    description:
+-      name: glob
+-      url: "https://pub.dartlang.org"
+-    source: hosted
+-    version: "1.2.0"
+-  integration_test:
+-    dependency: "direct dev"
+-    description: flutter
+-    source: sdk
+-    version: "0.9.2+2"
+-  io:
+-    dependency: transitive
+-    description:
+-      name: io
+-      url: "https://pub.dartlang.org"
+-    source: hosted
+-    version: "0.3.4"
+-  js:
+-    dependency: transitive
+-    description:
+-      name: js
+-      url: "https://pub.dartlang.org"
+-    source: hosted
+-    version: "0.6.3-nullsafety.3"
+-  json_rpc_2:
+-    dependency: transitive
+-    description:
+-      name: json_rpc_2
+-      url: "https://pub.dartlang.org"
+-    source: hosted
+-    version: "2.2.2"
+-  logging:
+-    dependency: transitive
+-    description:
+-      name: logging
+-      url: "https://pub.dartlang.org"
+-    source: hosted
+-    version: "0.11.4"
+   matcher:
+     dependency: transitive
+     description:
+       name: matcher
+       url: "https://pub.dartlang.org"
+     source: hosted
+-    version: "0.12.10-nullsafety.3"
++    version: "0.12.10-nullsafety.1"
+   meta:
+     dependency: transitive
+     description:
+       name: meta
+       url: "https://pub.dartlang.org"
+     source: hosted
+-    version: "1.3.0-nullsafety.6"
+-  node_interop:
+-    dependency: transitive
+-    description:
+-      name: node_interop
+-      url: "https://pub.dartlang.org"
+-    source: hosted
+-    version: "1.2.1"
+-  node_io:
+-    dependency: transitive
+-    description:
+-      name: node_io
+-      url: "https://pub.dartlang.org"
+-    source: hosted
+-    version: "1.1.1"
+-  package_config:
+-    dependency: transitive
+-    description:
+-      name: package_config
+-      url: "https://pub.dartlang.org"
+-    source: hosted
+-    version: "1.9.3"
++    version: "1.3.0-nullsafety.3"
+   path:
+     dependency: transitive
+     description:
+       name: path
+       url: "https://pub.dartlang.org"
+     source: hosted
+-    version: "1.8.0-nullsafety.3"
+-  pedantic:
+-    dependency: transitive
+-    description:
+-      name: pedantic
+-      url: "https://pub.dartlang.org"
+-    source: hosted
+-    version: "1.10.0-nullsafety.3"
+-  platform:
+-    dependency: transitive
+-    description:
+-      name: platform
+-      url: "https://pub.dartlang.org"
+-    source: hosted
+-    version: "3.0.0-nullsafety.4"
+-  pool:
+-    dependency: transitive
+-    description:
+-      name: pool
+-      url: "https://pub.dartlang.org"
+-    source: hosted
+-    version: "1.5.0-nullsafety.3"
+-  process:
+-    dependency: transitive
+-    description:
+-      name: process
+-      url: "https://pub.dartlang.org"
+-    source: hosted
+-    version: "4.0.0-nullsafety.4"
+-  pub_semver:
+-    dependency: transitive
+-    description:
+-      name: pub_semver
+-      url: "https://pub.dartlang.org"
+-    source: hosted
+-    version: "1.4.4"
++    version: "1.8.0-nullsafety.1"
+   sky_engine:
+     dependency: transitive
+     description: flutter
+     source: sdk
+     version: "0.0.99"
+-  source_map_stack_trace:
+-    dependency: transitive
+-    description:
+-      name: source_map_stack_trace
+-      url: "https://pub.dartlang.org"
+-    source: hosted
+-    version: "2.1.0-nullsafety.4"
+-  source_maps:
+-    dependency: transitive
+-    description:
+-      name: source_maps
+-      url: "https://pub.dartlang.org"
+-    source: hosted
+-    version: "0.10.10-nullsafety.3"
+   source_span:
+     dependency: transitive
+     description:
+       name: source_span
+       url: "https://pub.dartlang.org"
+     source: hosted
+-    version: "1.8.0-nullsafety.4"
++    version: "1.8.0-nullsafety.2"
+   stack_trace:
+     dependency: transitive
+     description:
+       name: stack_trace
+       url: "https://pub.dartlang.org"
+     source: hosted
+-    version: "1.10.0-nullsafety.6"
++    version: "1.10.0-nullsafety.1"
+   stream_channel:
+     dependency: transitive
+     description:
+       name: stream_channel
+       url: "https://pub.dartlang.org"
+     source: hosted
+-    version: "2.1.0-nullsafety.3"
++    version: "2.1.0-nullsafety.1"
+   string_scanner:
+     dependency: transitive
+     description:
+       name: string_scanner
+       url: "https://pub.dartlang.org"
+     source: hosted
+-    version: "1.1.0-nullsafety.3"
+-  sync_http:
+-    dependency: transitive
+-    description:
+-      name: sync_http
+-      url: "https://pub.dartlang.org"
+-    source: hosted
+-    version: "0.2.0"
++    version: "1.1.0-nullsafety.1"
+   term_glyph:
+     dependency: transitive
+     description:
+       name: term_glyph
+       url: "https://pub.dartlang.org"
+     source: hosted
+-    version: "1.2.0-nullsafety.3"
++    version: "1.2.0-nullsafety.1"
+   test_api:
+     dependency: transitive
+     description:
+       name: test_api
+       url: "https://pub.dartlang.org"
+     source: hosted
+-    version: "0.2.19-nullsafety.6"
+-  test_core:
+-    dependency: transitive
+-    description:
+-      name: test_core
+-      url: "https://pub.dartlang.org"
+-    source: hosted
+-    version: "0.3.12-nullsafety.9"
++    version: "0.2.19-nullsafety.2"
+   typed_data:
+     dependency: transitive
+     description:
+       name: typed_data
+       url: "https://pub.dartlang.org"
+     source: hosted
+-    version: "1.3.0-nullsafety.5"
++    version: "1.3.0-nullsafety.3"
+   vector_math:
+     dependency: transitive
+     description:
+       name: vector_math
+       url: "https://pub.dartlang.org"
+     source: hosted
+-    version: "2.1.0-nullsafety.5"
+-  vm_service:
+-    dependency: transitive
+-    description:
+-      name: vm_service
+-      url: "https://pub.dartlang.org"
+-    source: hosted
+-    version: "5.5.0"
+-  watcher:
+-    dependency: transitive
+-    description:
+-      name: watcher
+-      url: "https://pub.dartlang.org"
+-    source: hosted
+-    version: "0.9.7+15"
+-  web_socket_channel:
+-    dependency: transitive
+-    description:
+-      name: web_socket_channel
+-      url: "https://pub.dartlang.org"
+-    source: hosted
+-    version: "1.1.0"
+-  webdriver:
+-    dependency: transitive
+-    description:
+-      name: webdriver
+-      url: "https://pub.dartlang.org"
+-    source: hosted
+-    version: "2.1.2"
+-  yaml:
+-    dependency: transitive
+-    description:
+-      name: yaml
+-      url: "https://pub.dartlang.org"
+-    source: hosted
+-    version: "2.2.1"
++    version: "2.1.0-nullsafety.3"
+ sdks:
+-  dart: ">=2.12.0-0.0 <3.0.0"
++  dart: ">=2.10.0-110 <2.11.0"
+Index: android/app/build.gradle
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>def localProperties = new Properties()\r\ndef localPropertiesFile = rootProject.file('local.properties')\r\nif (localPropertiesFile.exists()) {\r\n    localPropertiesFile.withReader('UTF-8') { reader ->\r\n        localProperties.load(reader)\r\n    }\r\n}\r\n\r\ndef flutterRoot = localProperties.getProperty('flutter.sdk')\r\nif (flutterRoot == null) {\r\n    throw new GradleException(\"Flutter SDK not found. Define location with flutter.sdk in the local.properties file.\")\r\n}\r\n\r\ndef flutterVersionCode = localProperties.getProperty('flutter.versionCode')\r\nif (flutterVersionCode == null) {\r\n    flutterVersionCode = '1'\r\n}\r\n\r\ndef flutterVersionName = localProperties.getProperty('flutter.versionName')\r\nif (flutterVersionName == null) {\r\n    flutterVersionName = '1.0'\r\n}\r\n\r\napply plugin: 'com.android.application'\r\napply plugin: 'kotlin-android'\r\napply from: \"$flutterRoot/packages/flutter_tools/gradle/flutter.gradle\"\r\n\r\nandroid {\r\n    compileSdkVersion 30\r\n\r\n    sourceSets {\r\n        main.java.srcDirs += 'src/main/kotlin'\r\n    }\r\n\r\n    defaultConfig {\r\n        // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).\r\n        applicationId \"com.example.just_one_upgraded\"\r\n        minSdkVersion 16\r\n        targetSdkVersion 30\r\n        versionCode flutterVersionCode.toInteger()\r\n        versionName flutterVersionName\r\n    }\r\n\r\n    buildTypes {\r\n        release {\r\n            // TODO: Add your own signing config for the release build.\r\n            // Signing with the debug keys for now, so `flutter run --release` works.\r\n            signingConfig signingConfigs.debug\r\n        }\r\n    }\r\n}\r\n\r\nflutter {\r\n    source '../..'\r\n}\r\n\r\ndependencies {\r\n    implementation \"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version\"\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/android/app/build.gradle b/android/app/build.gradle
+--- a/android/app/build.gradle	(revision 06b3bff4fc26610fa871089f3cb877e2ddb70c6e)
++++ b/android/app/build.gradle	(date 1608371862130)
+@@ -26,17 +26,21 @@
+ apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
+ 
+ android {
+-    compileSdkVersion 30
++    compileSdkVersion 29
+ 
+     sourceSets {
+         main.java.srcDirs += 'src/main/kotlin'
+     }
+ 
++    lintOptions {
++        disable 'InvalidPackage'
++    }
++
+     defaultConfig {
+         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
+         applicationId "com.example.just_one_upgraded"
+         minSdkVersion 16
+-        targetSdkVersion 30
++        targetSdkVersion 29
+         versionCode flutterVersionCode.toInteger()
+         versionName flutterVersionName
+     }
+Index: ios/Flutter/AppFrameworkInfo.plist
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<!DOCTYPE plist PUBLIC \"-//Apple//DTD PLIST 1.0//EN\" \"http://www.apple.com/DTDs/PropertyList-1.0.dtd\">\r\n<plist version=\"1.0\">\r\n<dict>\r\n  <key>CFBundleDevelopmentRegion</key>\r\n  <string>en</string>\r\n  <key>CFBundleExecutable</key>\r\n  <string>App</string>\r\n  <key>CFBundleIdentifier</key>\r\n  <string>io.flutter.flutter.app</string>\r\n  <key>CFBundleInfoDictionaryVersion</key>\r\n  <string>6.0</string>\r\n  <key>CFBundleName</key>\r\n  <string>App</string>\r\n  <key>CFBundlePackageType</key>\r\n  <string>FMWK</string>\r\n  <key>CFBundleShortVersionString</key>\r\n  <string>1.0</string>\r\n  <key>CFBundleSignature</key>\r\n  <string>????</string>\r\n  <key>CFBundleVersion</key>\r\n  <string>1.0</string>\r\n  <key>MinimumOSVersion</key>\r\n  <string>8.0</string>\r\n</dict>\r\n</plist>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/ios/Flutter/AppFrameworkInfo.plist b/ios/Flutter/AppFrameworkInfo.plist
+--- a/ios/Flutter/AppFrameworkInfo.plist	(revision 06b3bff4fc26610fa871089f3cb877e2ddb70c6e)
++++ b/ios/Flutter/AppFrameworkInfo.plist	(date 1608371279295)
+@@ -3,7 +3,7 @@
+ <plist version="1.0">
+ <dict>
+   <key>CFBundleDevelopmentRegion</key>
+-  <string>en</string>
++  <string>$(DEVELOPMENT_LANGUAGE)</string>
+   <key>CFBundleExecutable</key>
+   <string>App</string>
+   <key>CFBundleIdentifier</key>
+Index: android/build.gradle
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>buildscript {\r\n    ext.kotlin_version = '1.3.50'\r\n    repositories {\r\n        google()\r\n        jcenter()\r\n    }\r\n\r\n    dependencies {\r\n        classpath 'com.android.tools.build:gradle:4.1.0'\r\n        classpath \"org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version\"\r\n    }\r\n}\r\n\r\nallprojects {\r\n    repositories {\r\n        google()\r\n        jcenter()\r\n    }\r\n}\r\n\r\nrootProject.buildDir = '../build'\r\nsubprojects {\r\n    project.buildDir = \"${rootProject.buildDir}/${project.name}\"\r\n}\r\nsubprojects {\r\n    project.evaluationDependsOn(':app')\r\n}\r\n\r\ntask clean(type: Delete) {\r\n    delete rootProject.buildDir\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/android/build.gradle b/android/build.gradle
+--- a/android/build.gradle	(revision 06b3bff4fc26610fa871089f3cb877e2ddb70c6e)
++++ b/android/build.gradle	(date 1608371279292)
+@@ -6,7 +6,7 @@
+     }
+ 
+     dependencies {
+-        classpath 'com.android.tools.build:gradle:4.1.0'
++        classpath 'com.android.tools.build:gradle:3.5.0'
+         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+     }
+ }
+Index: pubspec.yaml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>name: just_one_upgraded\r\ndescription: A new Flutter project.\r\n\r\n# The following line prevents the package from being accidentally published to\r\n# pub.dev using `pub publish`. This is preferred for private packages.\r\npublish_to: 'none' # Remove this line if you wish to publish to pub.dev\r\n\r\n# The following defines the version and build number for your application.\r\n# A version number is three numbers separated by dots, like 1.2.43\r\n# followed by an optional build number separated by a +.\r\n# Both the version and the builder number may be overridden in flutter\r\n# build by specifying --build-name and --build-number, respectively.\r\n# In Android, build-name is used as versionName while build-number used as versionCode.\r\n# Read more about Android versioning at https://developer.android.com/studio/publish/versioning\r\n# In iOS, build-name is used as CFBundleShortVersionString while build-number used as CFBundleVersion.\r\n# Read more about iOS versioning at\r\n# https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html\r\nversion: 1.0.0+1\r\n\r\nenvironment:\r\n  sdk: \">=2.7.0 <3.0.0\"\r\n\r\ndependencies:\r\n  flutter:\r\n    sdk: flutter\r\n\r\n\r\n  # The following adds the Cupertino Icons font to your application.\r\n  # Use with the CupertinoIcons class for iOS style icons.\r\n  cupertino_icons: ^1.0.2\r\n\r\ndev_dependencies:\r\n  flutter_test:\r\n    sdk: flutter\r\n  integration_test:\r\n    sdk: flutter\r\n\r\n# For information on the generic Dart part of this file, see the\r\n# following page: https://dart.dev/tools/pub/pubspec\r\n\r\n# The following section is specific to Flutter.\r\nflutter:\r\n\r\n  # The following line ensures that the Material Icons font is\r\n  # included with your application, so that you can use the icons in\r\n  # the material Icons class.\r\n  uses-material-design: true\r\n\r\n  # To add assets to your application, add an assets section, like this:\r\n  # assets:\r\n  #   - images/a_dot_burr.jpeg\r\n  #   - images/a_dot_ham.jpeg\r\n\r\n  # An image asset can refer to one or more resolution-specific \"variants\", see\r\n  # https://flutter.dev/assets-and-images/#resolution-aware.\r\n\r\n  # For details regarding adding assets from package dependencies, see\r\n  # https://flutter.dev/assets-and-images/#from-packages\r\n\r\n  # To add custom fonts to your application, add a fonts section here,\r\n  # in this \"flutter\" section. Each entry in this list should have a\r\n  # \"family\" key with the font family name, and a \"fonts\" key with a\r\n  # list giving the asset and other descriptors for the font. For\r\n  # example:\r\n  # fonts:\r\n  #   - family: Schyler\r\n  #     fonts:\r\n  #       - asset: fonts/Schyler-Regular.ttf\r\n  #       - asset: fonts/Schyler-Italic.ttf\r\n  #         style: italic\r\n  #   - family: Trajan Pro\r\n  #     fonts:\r\n  #       - asset: fonts/TrajanPro.ttf\r\n  #       - asset: fonts/TrajanPro_Bold.ttf\r\n  #         weight: 700\r\n  #\r\n  # For details regarding fonts from package dependencies,\r\n  # see https://flutter.dev/custom-fonts/#from-packages\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/pubspec.yaml b/pubspec.yaml
+--- a/pubspec.yaml	(revision 06b3bff4fc26610fa871089f3cb877e2ddb70c6e)
++++ b/pubspec.yaml	(date 1608371862364)
+@@ -27,13 +27,11 @@
+ 
+   # The following adds the Cupertino Icons font to your application.
+   # Use with the CupertinoIcons class for iOS style icons.
+-  cupertino_icons: ^1.0.2
++  cupertino_icons: ^1.0.0
+ 
+ dev_dependencies:
+   flutter_test:
+     sdk: flutter
+-  integration_test:
+-    sdk: flutter
+ 
+ # For information on the generic Dart part of this file, see the
+ # following page: https://dart.dev/tools/pub/pubspec
+Index: lib/main.dart
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import 'package:flutter/material.dart';\r\n\r\nvoid main() {\r\n  runApp(MyApp());\r\n}\r\n\r\nclass MyApp extends StatelessWidget {\r\n  // This widget is the root of your application.\r\n  @override\r\n  Widget build(BuildContext context) {\r\n    return MaterialApp(\r\n      title: 'Flutter Demo',\r\n      theme: ThemeData(\r\n        // This is the theme of your application.\r\n        //\r\n        // Try running your application with \"flutter run\". You'll see the\r\n        // application has a blue toolbar. Then, without quitting the app, try\r\n        // changing the primarySwatch below to Colors.green and then invoke\r\n        // \"hot reload\" (press \"r\" in the console where you ran \"flutter run\",\r\n        // or simply save your changes to \"hot reload\" in a Flutter IDE).\r\n        // Notice that the counter didn't reset back to zero; the application\r\n        // is not restarted.\r\n        primarySwatch: Colors.blue,\r\n      ),\r\n      home: MyHomePage(title: 'Flutter Demo Home Page'),\r\n    );\r\n  }\r\n}\r\n\r\nclass MyHomePage extends StatefulWidget {\r\n  MyHomePage({Key key, this.title}) : super(key: key);\r\n\r\n  // This widget is the home page of your application. It is stateful, meaning\r\n  // that it has a State object (defined below) that contains fields that affect\r\n  // how it looks.\r\n\r\n  // This class is the configuration for the state. It holds the values (in this\r\n  // case the title) provided by the parent (in this case the App widget) and\r\n  // used by the build method of the State. Fields in a Widget subclass are\r\n  // always marked \"final\".\r\n\r\n  final String title;\r\n\r\n  @override\r\n  _MyHomePageState createState() => _MyHomePageState();\r\n}\r\n\r\nclass _MyHomePageState extends State<MyHomePage> {\r\n  int _counter = 0;\r\n\r\n  void _incrementCounter() {\r\n    setState(() {\r\n      // This call to setState tells the Flutter framework that something has\r\n      // changed in this State, which causes it to rerun the build method below\r\n      // so that the display can reflect the updated values. If we changed\r\n      // _counter without calling setState(), then the build method would not be\r\n      // called again, and so nothing would appear to happen.\r\n      _counter++;\r\n    });\r\n  }\r\n\r\n  @override\r\n  Widget build(BuildContext context) {\r\n    // This method is rerun every time setState is called, for instance as done\r\n    // by the _incrementCounter method above.\r\n    //\r\n    // The Flutter framework has been optimized to make rerunning build methods\r\n    // fast, so that you can just rebuild anything that needs updating rather\r\n    // than having to individually change instances of widgets.\r\n    return Scaffold(\r\n      appBar: AppBar(\r\n        // Here we take the value from the MyHomePage object that was created by\r\n        // the App.build method, and use it to set our appbar title.\r\n        title: Text(widget.title),\r\n      ),\r\n      body: Center(\r\n        // Center is a layout widget. It takes a single child and positions it\r\n        // in the middle of the parent.\r\n        child: Column(\r\n          // Column is also a layout widget. It takes a list of children and\r\n          // arranges them vertically. By default, it sizes itself to fit its\r\n          // children horizontally, and tries to be as tall as its parent.\r\n          //\r\n          // Invoke \"debug painting\" (press \"p\" in the console, choose the\r\n          // \"Toggle Debug Paint\" action from the Flutter Inspector in Android\r\n          // Studio, or the \"Toggle Debug Paint\" command in Visual Studio Code)\r\n          // to see the wireframe for each widget.\r\n          //\r\n          // Column has various properties to control how it sizes itself and\r\n          // how it positions its children. Here we use mainAxisAlignment to\r\n          // center the children vertically; the main axis here is the vertical\r\n          // axis because Columns are vertical (the cross axis would be\r\n          // horizontal).\r\n          mainAxisAlignment: MainAxisAlignment.center,\r\n          children: <Widget>[\r\n            Text(\r\n              'You have pushed the button this many times:',\r\n            ),\r\n            Text(\r\n              '$_counter',\r\n              style: Theme.of(context).textTheme.headline4,\r\n            ),\r\n          ],\r\n        ),\r\n      ),\r\n      floatingActionButton: FloatingActionButton(\r\n        onPressed: _incrementCounter,\r\n        tooltip: 'Increment',\r\n        child: Icon(Icons.add),\r\n      ), // This trailing comma makes auto-formatting nicer for build methods.\r\n    );\r\n  }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/lib/main.dart b/lib/main.dart
+--- a/lib/main.dart	(revision 06b3bff4fc26610fa871089f3cb877e2ddb70c6e)
++++ b/lib/main.dart	(date 1608371862353)
+@@ -21,6 +21,10 @@
+         // Notice that the counter didn't reset back to zero; the application
+         // is not restarted.
+         primarySwatch: Colors.blue,
++        // This makes the visual density adapt to the platform that you run
++        // the app on. For desktop platforms, the controls will be smaller and
++        // closer together (more dense) than on mobile platforms.
++        visualDensity: VisualDensity.adaptivePlatformDensity,
+       ),
+       home: MyHomePage(title: 'Flutter Demo Home Page'),
+     );
+Index: .gitignore
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+># Miscellaneous\r\n*.class\r\n*.log\r\n*.pyc\r\n*.swp\r\n.DS_Store\r\n.atom/\r\n.buildlog/\r\n.history\r\n.svn/\r\n\r\n# IntelliJ related\r\n*.iml\r\n*.ipr\r\n*.iws\r\n.idea/\r\n\r\n# The .vscode folder contains launch configuration and tasks you configure in\r\n# VS Code which you may wish to be included in version control, so this line\r\n# is commented out by default.\r\n#.vscode/\r\n\r\n# Flutter/Dart/Pub related\r\n**/doc/api/\r\n**/ios/Flutter/.last_build_id\r\n.dart_tool/\r\n.flutter-plugins\r\n.flutter-plugins-dependencies\r\n.packages\r\n.pub-cache/\r\n.pub/\r\n/build/\r\n\r\n# Web related\r\nlib/generated_plugin_registrant.dart\r\n\r\n# Symbolication related\r\napp.*.symbols\r\n\r\n# Obfuscation related\r\napp.*.map.json\r\n\r\n# Android Studio will place build artifacts here\r\n/android/app/debug\r\n/android/app/profile\r\n/android/app/release\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.gitignore b/.gitignore
+--- a/.gitignore	(revision 06b3bff4fc26610fa871089f3cb877e2ddb70c6e)
++++ b/.gitignore	(date 1608371862090)
+@@ -39,8 +39,3 @@
+ 
+ # Obfuscation related
+ app.*.map.json
+-
+-# Android Studio will place build artifacts here
+-/android/app/debug
+-/android/app/profile
+-/android/app/release
